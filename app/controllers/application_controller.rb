@@ -6,4 +6,9 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
+  get "/sandwiches" do 
+    sandwiches = Sandwich.all
+    sandwiches.to_json(include: :ingredients)
+  end
+
 end
